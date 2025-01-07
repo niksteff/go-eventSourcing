@@ -9,11 +9,11 @@ type EventRepository struct {
 	db map[string][]any // the simulated database of a relation accountId to events
 }
 
-func NewEventRepository() EventRepository {
+func NewEventRepository() *EventRepository {
 	r := EventRepository{}
 	r.populate()
 
-	return r
+	return &r
 }
 
 func (r *EventRepository) GetHistoryForAccount(accountId string) <-chan any {
